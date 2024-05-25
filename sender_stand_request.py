@@ -1,7 +1,6 @@
 import requests
 from configuration import API_URl, ORDER_ENDPOINT
 from data import order_data
-import unittest
 
 def test_create_and_get_order(self):
   
