@@ -1,0 +1,28 @@
+#Задание 1
+\d+ 
+\d+ “Couriers”
+\d+ “Orders”
+SELECT 
+    c.login AS courier_login,
+    COUNT(o.id) AS orders_in_delivery
+FROM 
+    public."Couriers" c
+JOIN 
+    public."Orders" o ON c.id = o."courierId"
+WHERE 
+    o."inDelivery" = true
+    AND o."finished" = false
+GROUP BY 
+    c.login;
+
+#Задание2
+SELECT
+    o.track,
+    CASE
+        WHEN o."finished" = true THEN 2
+        WHEN o."cancelled" = true THEN -1
+        WHEN o."inDelivery" = true THEN 1
+        ELSE 0
+    END AS status
+FROM
+    public."Orders" o;
