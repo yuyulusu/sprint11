@@ -1,11 +1,12 @@
 import requests
-from configuration import API_URl, ORDER_ENDPOINT
+import unittest
+from configuration import API_URl, ORDER_ENDPOINT, TRACK_ENDPOINT
 from data import order_data
 
 def test_create_and_get_order(self):
   
         # Выполнить запрос на создание заказа
-        create_response = requests.post(f"{self.API_URL}/api/v1/orders", json=order_data)
+        create_response = requests.post(f"{self.API_URL}ORDER_ENDPOINT", json=order_data)
         self.assertEqual(create_response.status_code, 201, "Order creation failed")
         
         # Сохранить номер трека заказа
@@ -13,7 +14,7 @@ def test_create_and_get_order(self):
         self.assertIsNotNone(track_number, "Track number is missing")
 
         # Выполнить запрос на получение заказа по треку заказа
-        get_response = requests.get(f"{self.API_URL}/api/v1/orders/track", params={"t": track_number})
+        get_response = requests.get(f"{self.API_URL}TRACK_ENDPOINT", params={"t": track_number})
         self.assertEqual(get_response.status_code, 200, "Failed to get order details")
 
         # Проверить содержимое ответа
