@@ -8,7 +8,6 @@ class TestOrderGet(unittest.TestCase):
         def test_create_and_get_order(self):
   
                 # Выполнить запрос на создание заказа
-                print(API_URL+ORDER_ENDPOINT)
                 create_response = requests.post(API_URL+ORDER_ENDPOINT, json=order_data)
                 self.assertEqual(create_response.status_code, 201, "Order creation failed")
                 
