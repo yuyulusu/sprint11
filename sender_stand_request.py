@@ -4,10 +4,8 @@ from configuration import API_URl, ORDER_ENDPOINT, TRACK_ENDPOINT
 from data import order_data
 
 class TestOrderGet(unittest.TestCase):
-        API_URL = 'https://078c1c9f-224f-406b-b623-66e2237df1bd.serverhub.praktikum-services.ru'
 
         def test_create_and_get_order(self):
-                API_URL = 'https://078c1c9f-224f-406b-b623-66e2237df1bd.serverhub.praktikum-services.ru'
   
                 # Выполнить запрос на создание заказа
                 print(API_URL+ORDER_ENDPOINT)
